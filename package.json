@@ -9,6 +9,8 @@
     "repl": "tsx server/index.ts --repl",
     "build": "vite build",
     "build:server": "tsc -p tsconfig.server.json",
+    "start": "node dist-server/server/index.js",
+    "start:dev": "tsx server/index.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
