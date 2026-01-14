@@ -257,9 +257,9 @@ Type validation occurs on:
    - Click "Create Web Service"
    - Render will automatically deploy on every push
 
-![Render Deployment](https://via.placeholder.com/1200x300?text=Backend+on+Render+Node.js)
+![Render Deployment](RD2.jpeg)
 
-Your API will be available at: `https://your-service-name.onrender.com`
+my api available at: `[https://your-service-name.onrender.com](https://rdbms-1.onrender.com)`
 
 ### Frontend Deployment (Netlify)
 
