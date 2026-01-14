@@ -1,6 +1,6 @@
 # gregory RDBMS: Custom Relational Database Management System
 
-![MiniRDBMS Web Interface]()
+![MiniRDBMS Web Interface](RD.jpeg)
 
 A **fully functional relational database management system (RDBMS)** built from scratch in TypeScript. This project demonstrates core database concepts including SQL parsing, query execution, indexing, constraints, and a complete web-based interface.
 
