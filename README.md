@@ -1,5 +1,7 @@
 # gregory RDBMS: Custom Relational Database Management System
 
+live deployed website available at: `https://rdbms-test-by-gregory.netlify.app/`
+
 ![MiniRDBMS Web Interface](RD.jpeg)
 
 A **relational database management system (RDBMS)** built from scratch in TypeScript. This project demonstrates core database concepts including SQL parsing, query execution, indexing, constraints, and a complete web-based interface.
@@ -259,7 +261,7 @@ Type validation occurs on:
 
 ![Render Deployment](RD2.jpeg)
 
-my api available at: `[https://your-service-name.onrender.com](https://rdbms-1.onrender.com)`
+my api available at: `https://rdbms-1.onrender.com`
 
 ### Frontend Deployment (Netlify)
 
@@ -295,7 +297,7 @@ my api available at: `[https://your-service-name.onrender.com](https://rdbms-1.o
    - Netlify automatically deploys on every push
    - Your site will be available at a `.netlify.app` domain
 
-![Netlify Deployment](https://via.placeholder.com/1200x300?text=Frontend+on+Netlify+React)
+![Netlify Deployment](RD3.jpeg)
 
 ### Full Stack Architecture
 
@@ -473,123 +475,3 @@ updateIndexes(rowId, oldRow, newRow);
 | Icons | Lucide React | ^0.344.0 |
 | Database | Custom JSON-based | Built from scratch |
 
-## Example Usage Walkthrough
-
-### 1. Create Tables
-
-```sql
-CREATE TABLE employees (
-  id INT PRIMARY KEY,
-  name TEXT NOT NULL,
-  salary FLOAT,
-  department TEXT
-);
-
-CREATE TABLE projects (
-  id INT PRIMARY KEY,
-  employee_id INT NOT NULL,
-  project_name TEXT,
-  budget FLOAT
-);
-```
-
-### 2. Insert Data
-
-```sql
-INSERT INTO employees VALUES (1, 'Alice Johnson', 75000, 'Engineering');
-INSERT INTO employees VALUES (2, 'Bob Smith', 65000, 'Marketing');
-INSERT INTO employees VALUES (3, 'Carol White', 80000, 'Engineering');
-
-INSERT INTO projects VALUES (1, 1, 'Website Redesign', 50000);
-INSERT INTO projects VALUES (2, 1, 'Mobile App', 100000);
-INSERT INTO projects VALUES (3, 2, 'Marketing Campaign', 25000);
-```
-
-### 3. Query Data
-
-```sql
--- Get all employees
-SELECT * FROM employees;
-
--- Get engineering department
-SELECT * FROM employees WHERE department = 'Engineering';
-
--- Find employee by ID (uses primary key index)
-SELECT * FROM employees WHERE id = 1;
-```
-
-### 4. Update & Delete
-
-```sql
--- Update salary
-UPDATE employees SET salary = 85000 WHERE id = 1;
-
--- Cancel a project
-DELETE FROM projects WHERE id = 3;
-```
-
-### 5. Complex Queries
-
-```sql
--- JOIN employees with their projects
-SELECT employees.name, projects.project_name, projects.budget
-FROM employees
-JOIN projects ON employees.id = projects.employee_id;
-```
-
-## Performance Benchmarks
-
-Performance varies based on data volume and index usage:
-
-| Operation | Without Index | With Index |
-|-----------|---------------|-----------|
-| Find by primary key (100 rows) | 0.1ms | 0.02ms |
-| Find by unique column (1000 rows) | 0.5ms | 0.05ms |
-| Full table scan (10000 rows) | 10ms | N/A |
-| Insert with constraint check | 0.3ms | 0.1ms |
-
-## Testing
-
-Run the demo queries:
-
-```bash
-# Copy queries from demo-queries.sql into SQL Console
-# Or via REPL:
-$ npm run repl
-mydb> <paste queries here>
-```
-
-See `demo-queries.sql` for a comprehensive test suite.
-
-## Development Notes
-
-### Adding New Features
-
-1. **New SQL Statement**: Update `server/parser.ts` with new statement type
-2. **New Query Type**: Add executor method in `server/database.ts`
-3. **New Data Type**: Update type validation in `server/table.ts`
-4. **UI Changes**: Modify React components in `src/components/`
-
-### Debugging
-
-- **Backend**: Check console output from `npm run dev:server`
-- **Frontend**: Browser DevTools and React DevTools
-- **Database State**: Check `/data` directory JSON files
-- **Queries**: Use `describe <table>` in REPL for schema inspection
-
-## Credits
-
-This is a complete custom implementation built from scratch without using:
-- External SQL parser libraries
-- ORM frameworks
-- Database abstraction layers
-
-All core functionality (parser, query executor, indexing, constraints) is implemented directly to demonstrate comprehensive understanding of database systems.
-
-## License
-
-Built for educational and demonstration purposes.
-
-## Questions?
-
-See `QUICKSTART.md` for quick setup instructions or check the demo queries in `demo-queries.sql`.
