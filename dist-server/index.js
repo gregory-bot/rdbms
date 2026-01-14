@@ -1,19 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.db = void 0;
-const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
-const database_1 = require("./database");
-const repl_1 = require("./repl");
-const app = (0, express_1.default)();
-const db = new database_1.Database('./data');
-exports.db = db;
+import express from 'express';
+import cors from 'cors';
+import { Database } from './database';
+import { REPL } from './repl';
+const app = express();
+const db = new Database('./data');
 // Middleware
-app.use((0, cors_1.default)());
-app.use(express_1.default.json());
+app.use(cors());
+app.use(express.json());
 /**
  * Health check / root route
  * This prevents "Cannot GET /" on Render
@@ -85,7 +78,7 @@ app.get('/api/tables/:tableName', (req, res) => {
 // Server start
 const PORT = process.env.PORT || 3001;
 if (process.argv.includes('--repl')) {
-    const repl = new repl_1.REPL(db);
+    const repl = new REPL(db);
     repl.start();
 }
 else {
@@ -94,3 +87,4 @@ else {
         console.log(`Run with --repl flag for interactive console`);
     });
 }
+export { db };

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "CommonJS",
-    "outDir": "./dist-server",       // compiled JS here
+    "module": "ESNext",              // important for ES modules
+    "moduleResolution": "node",      // <-- fix here
+    "outDir": "./dist-server",       // backend compiled files
     "rootDir": "./server",           // only backend source
     "strict": true,
     "esModuleInterop": true,
@@ -11,12 +12,6 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "server/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist-server",
-    "src/**/*"
-  ]
+  "include": ["server/**/*.ts"],
+  "exclude": ["node_modules", "dist-server", "src/**/*"]
 }

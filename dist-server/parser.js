@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SQLParser = void 0;
-class SQLParser {
+export class SQLParser {
     parse(sql) {
         const trimmed = sql.trim().replace(/;$/, '');
         const upperSQL = trimmed.toUpperCase();
@@ -241,4 +238,3 @@ class SQLParser {
         return parts;
     }
 }
-exports.SQLParser = SQLParser;

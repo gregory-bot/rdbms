@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Table = void 0;
-class Table {
+export class Table {
     constructor(schema, storage, existingRows) {
         this.schema = schema;
         // Ensure uniqueKeys is initialized
@@ -265,4 +262,3 @@ class Table {
         });
     }
 }
-exports.Table = Table;

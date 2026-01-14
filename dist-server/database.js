@@ -1,14 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Database = void 0;
-const table_1 = require("./table");
-const storage_1 = require("./storage");
-const parser_1 = require("./parser");
-class Database {
+import { Table } from './table';
+import { Storage } from './storage';
+import { SQLParser } from './parser';
+export class Database {
     constructor(dataDir) {
         this.tables = new Map();
-        this.storage = new storage_1.Storage(dataDir);
-        this.parser = new parser_1.SQLParser();
+        this.storage = new Storage(dataDir);
+        this.parser = new SQLParser();
         this.loadExistingTables();
     }
     execute(sql) {
@@ -69,7 +66,7 @@ class Database {
             primaryKey,
             uniqueKeys
         };
-        const table = new table_1.Table(schema, this.storage);
+        const table = new Table(schema, this.storage);
         this.tables.set(query.tableName, table);
         return {
             success: true,
@@ -227,10 +224,9 @@ class Database {
                 if (!schema.uniqueKeys) {
                     schema.uniqueKeys = [];
                 }
-                const table = new table_1.Table(schema, this.storage, data.rows);
+                const table = new Table(schema, this.storage, data.rows);
                 this.tables.set(tableName, table);
             }
         });
     }
 }
-exports.Database = Database;
