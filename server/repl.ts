@@ -1,5 +1,5 @@
 import * as readline from 'readline';
-import { Database } from './database';
+import { Database } from './database.js';
 
 export class REPL {
   private db: Database;

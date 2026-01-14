@@ -1,7 +1,7 @@
-import { Table } from './table';
-import { Storage } from './storage';
-import { SQLParser } from './parser';
-import { QueryResult, TableSchema, Row } from './types';
+import { Table } from './table.js';
+import { Storage } from './storage.js';
+import { SQLParser } from './parser.js';
+import { QueryResult, TableSchema, Row } from './types.js';
 
 export class Database {
   private tables: Map<string, Table>;

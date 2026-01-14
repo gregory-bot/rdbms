@@ -1,6 +1,6 @@
-import { Table } from './table';
-import { Storage } from './storage';
-import { SQLParser } from './parser';
+import { Table } from './table.js';
+import { Storage } from './storage.js';
+import { SQLParser } from './parser.js';
 export class Database {
     constructor(dataDir) {
         this.tables = new Map();

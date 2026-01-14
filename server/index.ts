@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { Database } from './database';
-import { REPL } from './repl';
+import { Database } from './database.js';
+import { REPL } from './repl.js';
 
 const app = express();
 const db = new Database('./data');
