@@ -2,7 +2,7 @@
 
 ![MiniRDBMS Web Interface](RD.jpeg)
 
-A **fully functional relational database management system (RDBMS)** built from scratch in TypeScript. This project demonstrates core database concepts including SQL parsing, query execution, indexing, constraints, and a complete web-based interface.
+A **relational database management system (RDBMS)** built from scratch in TypeScript. This project demonstrates core database concepts including SQL parsing, query execution, indexing, constraints, and a complete web-based interface.
 
 ## Challenge Requirements
 
@@ -19,7 +19,7 @@ This project fulfills all requirements from the RDBMS implementation challenge:
 
 ## Overview
 
-MiniRDBMS is a complete database system built entirely from scratch. It includes:
+it includes:
 
 1. **Custom SQL Parser** - Parses SQL-like syntax without external parser libraries
 2. **Query Execution Engine** - Executes parsed queries with full constraint validation
@@ -57,7 +57,7 @@ MiniRDBMS is a complete database system built entirely from scratch. It includes
 - Schema introspection (`DESCRIBE`, `SHOW TABLES`)
 - Help system and command history
 
-## Getting Started
+## Get started
 
 ### Installation
 
@@ -88,7 +88,7 @@ npm run repl
 Try these commands:
 ```
 mydb> CREATE TABLE users (id INT PRIMARY KEY, name TEXT, email TEXT UNIQUE);
-mydb> INSERT INTO users VALUES (1, 'Alice', 'alice@example.com');
+mydb> INSERT INTO users VALUES (1, 'kipngeno gregory', 'kipngenogregory@gmail.com');
 mydb> SELECT * FROM users;
 mydb> describe users
 mydb> show tables
@@ -118,16 +118,16 @@ CREATE TABLE orders (
 
 ```sql
 -- Insert
-INSERT INTO users VALUES (1, 'Alice', 'alice@example.com', true);
-INSERT INTO users VALUES (2, 'Bob', 'bob@example.com', true);
+INSERT INTO users VALUES (1, 'Kipngeno', 'kipngenogregory@gmail.com', true);
+INSERT INTO users VALUES (2, 'Maron', 'maron@gmail.com', true);
 
 -- Select
 SELECT * FROM users;
 SELECT name, email FROM users WHERE id = 1;
-SELECT * FROM users WHERE email = 'alice@example.com';
+SELECT * FROM users WHERE email = 'kipngenogregory@gmail.com';
 
 -- Update
-UPDATE users SET name = 'Alice Smith' WHERE id = 1;
+UPDATE users SET name = 'kipngeno' WHERE id = 1;
 UPDATE orders SET status = 'shipped' WHERE id = 1;
 
 -- Delete
