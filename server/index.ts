@@ -6,9 +6,27 @@ import { REPL } from './repl';
 const app = express();
 const db = new Database('./data');
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+/**
+ * Health check / root route
+ * This prevents "Cannot GET /" on Render
+ */
+app.get('/', (_req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'MiniRDBMS API',
+    endpoints: [
+      'POST /api/query',
+      'GET /api/tables',
+      'GET /api/tables/:tableName'
+    ]
+  });
+});
+
+// API routes
 app.post('/api/query', (req, res) => {
   try {
     const { sql } = req.body;
@@ -63,6 +81,7 @@ app.get('/api/tables/:tableName', (req, res) => {
   }
 });
 
+// Server start
 const PORT = process.env.PORT || 3001;
 
 if (process.argv.includes('--repl')) {

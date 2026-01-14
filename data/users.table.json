@@ -27,6 +27,18 @@
       "name": "Kipngeno Gregory",
       "email": "kipngenogregory@gmail.com",
       "active": 1
+    },
+    {
+      "id": 1,
+      "name": "Michelle Jerono",
+      "email": "jerono@gmail.com",
+      "active": 1
+    },
+    {
+      "id": 1,
+      "name": "Sirma Moses",
+      "email": "mosessirma@gmail.com",
+      "active": 1
     }
   ]
 }
