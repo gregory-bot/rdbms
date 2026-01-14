@@ -10,6 +10,10 @@ export class Table {
 
   constructor(schema: TableSchema, storage: Storage, existingRows?: Row[]) {
     this.schema = schema;
+    // Ensure uniqueKeys is initialized
+    if (!this.schema.uniqueKeys) {
+      this.schema.uniqueKeys = [];
+    }
     this.rows = existingRows || [];
     this.indexes = new Map();
     this.storage = storage;

@@ -1,0 +1,32 @@
+{
+  "schema": {
+    "name": "users",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INT"
+      },
+      {
+        "name": "name",
+        "type": "TEXT"
+      },
+      {
+        "name": "email",
+        "type": "TEXT"
+      },
+      {
+        "name": "active",
+        "type": "INT"
+      }
+    ],
+    "uniqueKeys": []
+  },
+  "rows": [
+    {
+      "id": 1,
+      "name": "Kipngeno Gregory",
+      "email": "kipngenogregory@gmail.com",
+      "active": 1
+    }
+  ]
+}

@@ -251,7 +251,9 @@ export class Database {
     if (table.schema.primaryKey) {
       indexes.push(`${tableName}_${table.schema.primaryKey}_idx (PRIMARY KEY)`);
     }
-    table.schema.uniqueKeys.forEach(key => {
+    
+    const uniqueKeys = table.schema.uniqueKeys || [];
+    uniqueKeys.forEach(key => {
       if (key !== table.schema.primaryKey) {
         indexes.push(`${tableName}_${key}_idx (UNIQUE)`);
       }
@@ -265,7 +267,12 @@ export class Database {
     tableNames.forEach(tableName => {
       const data = this.storage.loadTable(tableName);
       if (data) {
-        const table = new Table(data.schema, this.storage, data.rows);
+        // Ensure schema has required properties
+        const schema = data.schema as TableSchema;
+        if (!schema.uniqueKeys) {
+          schema.uniqueKeys = [];
+        }
+        const table = new Table(schema, this.storage, data.rows);
         this.tables.set(tableName, table);
       }
     });

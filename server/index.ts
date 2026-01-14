@@ -17,9 +17,9 @@ app.post('/api/query', (req, res) => {
     }
 
     const result = db.execute(sql);
-    res.json(result);
+    return res.json(result);
   } catch (error: any) {
-    res.status(500).json({ success: false, error: error.message });
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
   }
 });
 
@@ -35,9 +35,9 @@ app.get('/api/tables', (req, res) => {
         indexes
       };
     });
-    res.json({ success: true, tables: tablesInfo });
+    return res.json({ success: true, tables: tablesInfo });
   } catch (error: any) {
-    res.status(500).json({ success: false, error: error.message });
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
   }
 });
 
@@ -50,7 +50,7 @@ app.get('/api/tables/:tableName', (req, res) => {
     }
 
     const indexes = db.getTableIndexes(tableName);
-    res.json({
+    return res.json({
       success: true,
       table: {
         name: tableName,
@@ -59,7 +59,7 @@ app.get('/api/tables/:tableName', (req, res) => {
       }
     });
   } catch (error: any) {
-    res.status(500).json({ success: false, error: error.message });
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
   }
 });
 
