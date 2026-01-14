@@ -1,6 +1,6 @@
-# MiniRDBMS: Custom Relational Database Management System
+# gregory RDBMS: Custom Relational Database Management System
 
-![MiniRDBMS Web Interface](https://rdbms-test-by-gregory.netlify.app/)
+![MiniRDBMS Web Interface]()
 
 A **fully functional relational database management system (RDBMS)** built from scratch in TypeScript. This project demonstrates core database concepts including SQL parsing, query execution, indexing, constraints, and a complete web-based interface.
 
